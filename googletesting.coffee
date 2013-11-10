@@ -1,5 +1,8 @@
 phantom.cookies = casper.loadCookies()
 
+setting = casper.loadSettings()
+casper.userAgent setting.userAgent
+
 casper.test.begin 'Google search retrieves', 5, (test) ->
   casper.start 'http://www.google.co.jp', ->
     test.assertTitle 'Google', 'google homepage title is the one expected'
