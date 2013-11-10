@@ -1,3 +1,5 @@
+phantom.cookies = casper.loadCookies()
+
 casper.test.begin 'Google search retrieves', 5, (test) ->
   casper.start 'http://www.google.co.jp', ->
     test.assertTitle 'Google', 'google homepage title is the one expected'
@@ -12,4 +14,5 @@ casper.test.begin 'Google search retrieves', 5, (test) ->
     , 'google search for "casperjs" retrives 10 or more results'
 
   casper.run ->
+    casper.saveCookies phantom.cookies
     test.done()
